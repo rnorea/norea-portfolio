@@ -1,0 +1,347 @@
+html{
+  margin: 0;
+}
+body{
+  background-color: #f7faff;
+  margin: 0px;
+  overflow-x: hidden;
+  font-family: 'Oswald', sans-serif;
+}
+
+a{
+  text-decoration: none;
+  color: black;
+}
+
+ul{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+abbr{
+  text-decoration: underline;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.page-header{
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  z-index: 50;
+  width: 100%;
+  background-color: #ffffff00;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.146);
+  backdrop-filter: blur(50px);
+
+}
+.title-container{
+  flex: 1;
+}
+.title{
+
+  display: flex;
+  flex-direction: column;
+  padding: 10px 30px;
+  
+}
+#mini-name{
+  font-size: 20px;
+}
+#mini-role{
+  font-size: 12px;
+  color: rgb(99, 99, 99);
+}
+
+.nav-bar-list{
+  flex: 1;
+  padding-right: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  max-width: fit-content;
+  column-gap: 10px;
+  width: 500px;
+  height: 50px;
+  margin-right: 10px;
+  
+}
+.nav-anchor{
+  display: inline-block;
+  border: black 2px solid;
+  border-radius: 3px;
+  padding: 3px 8px;
+  transition: 250ms;
+
+}
+.nav-anchor:hover{
+  transform: scale(1.05);
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.162);
+}
+
+.content-container{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 40px 5px;
+  row-gap: 30px;
+}
+.section-container{
+  position: relative;
+  width: 100%;
+  scroll-margin-top: 90px;
+  border-top: rgba(0, 0, 0, 0.26) 2px dashed;
+  background-color: #f7fffa;
+  box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.1);
+}
+.section-title{
+  position: absolute;
+  top: -20px;
+  left: 40px;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 20px;
+  display: inline-block;
+  border: black 2px solid;
+  border-radius: 3px;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.153);
+  z-index: 20;
+  backdrop-filter: blur(200px);
+  padding: 7px 10px;
+}
+.section-body{
+  margin-top: 30px;
+}
+
+.profile-container{
+  display: flex;
+  width: 100%;
+  height: 500px;
+}
+.profile-left{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-name-direct-container{
+  display: flex;
+  flex-direction: column;
+}
+.profile-name{
+  font-size: 8vw;
+}
+
+.icon-container{
+ display: flex;
+ gap: 5px;
+ align-items: center;
+}
+.icon{
+  width: 15px;
+  height: 15px;
+}
+.profile-contact-container{
+  display: flex;
+  justify-content: start;
+  
+}
+.profile-contact-list{
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-right{
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.profile-image-container{
+  height: 50vh;
+  width: 30vw;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 200ms ease-in-out;
+  border: rgba(0, 0, 0, 0.196) 1px dashed;
+}
+.profile-image-container:hover{
+  transform: scale(1.01);
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.146);
+  
+}
+.profile-image{
+  width: 100%;
+  height: 100%;
+  object-position: top;
+  object-fit: cover;
+
+}
+
+.para-container{
+  padding: 0 20px;
+}
+#para2{
+  display: flex;
+  justify-content: end;
+}
+.works-list{
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 300px));
+  gap:20px;
+  row-gap: 50px;
+  margin:35px 20px;
+  isolation: isolate;
+}
+
+.work{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: fit-content;
+  border: rgba(0, 0, 0, 0.153) 2px solid;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.148);
+  transition: 400ms ease-in-out;
+  height: 25vh;
+  min-width: 150px;
+  position: relative;
+  z-index: 1;  
+}
+.work:hover{
+  transform: scale(1.05);
+  z-index: 100;
+  height: fit-content;
+}
+.work:hover > .work-description{
+  transform: translateX(0);
+  display: inline;
+}
+
+.work-container{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 25vh;
+  overflow: hidden;
+}
+
+.work-title{
+  position: absolute;
+  text-align: center;
+  color: rgb(244, 244, 244);
+  padding: 10px 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.463);
+}
+.work-image-container{
+  width: 100%;
+  border-bottom: rgba(0, 0, 0, 0.146) 2px dashed;
+  overflow: hidden;
+  position: relative;
+  overflow: hidden;
+}
+.work-image-bg{
+  width: 100%;
+  min-width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  border-radius: inherit;
+  border: inherit;
+}
+.work-description{
+  padding: 0 10px;
+  transition: transform 500ms ease-in-out;
+  transform: translateY(100%);
+  background-color: #f5f5f7;
+}
+
+.page-footer {
+  margin-top: 30px;
+  padding-bottom: 200px;
+}
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  padding: 30px 40px;
+  gap: 15px;
+}
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+}
+.footer-name {
+  font-size: 24px;
+}
+.footer-role {
+  font-size: 12px;
+  color: rgb(99, 99, 99);
+}
+.footer-links {
+  display: flex;
+  gap: 15px;
+}
+.footer-links a {
+  border: black 2px solid;
+  border-radius: 3px;
+  padding: 3px 8px;
+  font-size: 13px;
+  transition: 250ms;
+}
+.footer-links a:hover {
+  transform: scale(1.05);
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.162);
+}
+.footer-divider {
+  width: 100%;
+  border-top: rgba(0, 0, 0, 0.2) 1px dashed;
+}
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  font-size: 13px;
+  color: rgb(80, 80, 80);
+  gap: 5px;
+}
+.footer-edu {
+  font-style: italic;
+}
+.footer-disclaimer {
+  font-size: 11px;
+  color: rgb(140, 140, 140);
+  line-height: 1.6;
+}
+.footer-disclaimer a {
+  color: rgb(100, 100, 100);
+  text-decoration: underline;
+}
+.oswald {
+  font-family: "Oswald", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
+}
+.bebas-neue-regular {
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
