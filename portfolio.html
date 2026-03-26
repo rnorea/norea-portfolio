@@ -9,7 +9,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
     <link rel="icon" href="./assets/favicon.ico" type="image/x-icon" scr>
-
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="./portfolio.js"></script>
   </head>
   <body>
     <header class="page-header" >
@@ -19,16 +21,25 @@
           <span id="mini-role">Designer & Developer</span>
         </a>
       </div>
-      <nav class="nav-bar">      
-        <ul class="nav-bar-list" >
+      <nav  class="nav-bar">      
+        <ul id="nav-bar" class="nav-bar-list" >
           <li><a href="#profile-section" class="nav-anchor">Profile</a></li>
           <li><a href="#about-section" class="nav-anchor">About</a></li>
           <li><a href="#works-section" class="nav-anchor">Works & Skills</a></li>
         </ul>
       </nav>
+      <button id="menu" class="burger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
     </header>
+
     <main class="content-container">
+
       <section id="top"></section>
+
       <section id="profile-section" class="section-container">
         <div class="profile-container">
           <div class="profile-left">
@@ -36,25 +47,24 @@
               <span class="profile-name">ROTH</span>
               <span class="profile-name">Noreasakpheak</span>
             </div>
-
             <div class="profile-contact-container">
               <ul class="profile-contact-list">
-                <li class="contact"><a href="">
+                <!-- <li class="contact"><a href="">
                   <div class="icon-container">
                     <img class="icon" src="./assets/icons/phone.svg" alt="phone-logo" />
-                    <span>012-123-123-4</span>
+                    <span>092-985-362</span>
                   </div>
-                </a></li>
+                </a></li> -->
                 <li class="contact"><a href="mailto:work@rothnoreasakpheak.com">
                   <div class="icon-container" >
                     <img class="icon" src="./assets/icons/email_black.svg" alt="phone-logo" />
-                    <span >work@rothnoreasakpheak.com</span>
+                    <span >rothnoreasakpheak@gmail.com</span>
                   </div>
                 </a></li>
-                <li class="contact"><a href="https://github.com/rnorea">
+                <li class="contact"><a href="https://github.com/rnorea" target="_blank">
                   <div class="icon-container" >
                     <img class="icon" src="./assets/icons/github-logo.svg" alt="phone-logo" />
-                    <span >rnorea</span>
+                    <span>rnorea</span>
                   </div>
                 </a></li>
               </ul>
@@ -62,12 +72,12 @@
           </div>
           <div class="profile-right">
             <div class="profile-image-container">
-              <img class="profile-image" src="./assets/images/kpot_rafile.jpg" alt="">
+              <img class="profile-image" src="./assets/images/kpot_rafile.jpg" alt="sakpheak_profile_photo">
             </div>
-            
           </div>
         </div>
       </section>
+
       <section id="about-section" class="section-container">
         <div class="about-container">
           <div class="about-title-container">
@@ -85,7 +95,7 @@
                       </abbr>
                     </a>
                   </span>
-                  ,a frontend developer and designer who loves 
+                  , a frontend developer and designer who loves 
                   turning complex ideas into clean, intuitive digital 
                   experiences. With a strong foundation in HTML, CSS, 
                   and JavaScript, I craft responsive, accessible 
@@ -120,7 +130,7 @@
           </div>
           <ul class="works-list">
             <li class="work">
-              <a href="https://github.com/rnorea/STOCKARRIER-Stock-Management-System" class="work-anchor" target="_blank">
+              <a href="https://github.ement-System" class="work-anchor" target="_blank">
                 <div class="work-container">
                   <div class="work-image-container">
                     <img class="work-image-bg" src="https://i.pinimg.com/736x/09/b2/31/09b231576d980076f6480c438af228e7.jpg" alt="">
@@ -276,17 +286,17 @@
       <div class="footer-container">
         <div class="footer-top">
           <div class="footer-brand">
-            <span class="footer-name bebas-neue-regular">ROTH Noreasakpheak</span>
+            <span class="footer-name bebas-neue-regular">Rak</span>
             <span class="footer-role">Designer & Developer</span>
           </div>
           <div class="footer-links">
-            <a href="mailto:work@rothnoreasakpheak.com">work@rothnoreasakpheak.com</a>
-            <a href="https://github.com/rnorea" target="_blank">GitHub</a>
+            <a href="mailto:work@rothnoreasakpheak.com">wakpheak.com</a>
+            <a href="https://githu" target="_blank">GitHub</a>
           </div>
         </div>
         <div class="footer-divider"></div>
         <div class="footer-bottom">
-          <span>© 2026 ROTH Noreasakpheak. All rights reserved.</span>
+          <span>© 2026 . All rights reserved.</span>
           <span class="footer-edu">⚠ Built for educational purposes only.</span>
         </div>
         <div class="footer-disclaimer">

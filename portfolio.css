@@ -1,3 +1,10 @@
+:root{
+  --prime-blue: #213448;
+  --second-blue: #547792;
+  --third-blue: #94B4C1;
+  --smoke-white: #f7f7f7;
+}
+
 html{
   margin: 0;
 }
@@ -35,17 +42,15 @@ abbr{
   background-color: #ffffff00;
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.146);
   backdrop-filter: blur(50px);
-
 }
+
 .title-container{
   flex: 1;
 }
 .title{
-
   display: flex;
   flex-direction: column;
   padding: 10px 30px;
-  
 }
 #mini-name{
   font-size: 20px;
@@ -55,6 +60,7 @@ abbr{
   color: rgb(99, 99, 99);
 }
 
+/* ── Desktop nav ── */
 .nav-bar-list{
   flex: 1;
   padding-right: 30px;
@@ -66,38 +72,82 @@ abbr{
   width: 500px;
   height: 50px;
   margin-right: 10px;
-  
 }
+
 .nav-anchor{
   display: inline-block;
   border: black 2px solid;
   border-radius: 3px;
   padding: 3px 8px;
   transition: 250ms;
-
 }
 .nav-anchor:hover{
   transform: scale(1.05);
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.162);
 }
 
+/* ── Burger button ── */
+.burger{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  align-items: center;
+  height: 40px;
+  aspect-ratio: 1/1;
+  padding: 3px;
+  margin-right: 20px;
+  border-color: black;
+  border-radius: 4px;
+  background: transparent;
+  cursor: pointer;
+}
+.burger:hover{
+  transform: scale(1.05);
+}
+.burger span{
+  display: block;
+  width: 20px;
+  height: 2px;
+  background-color: black;
+  transition: transform 300ms ease, opacity 300ms ease;
+  transform-origin: center;
+}
+
+/* Burger → X animation */
+.burger.active span:nth-child(1){
+  transform: translateY(7px) rotate(45deg);
+}
+.burger.active span:nth-child(2){
+  opacity: 0;
+  transform: scaleX(0);
+}
+.burger.active span:nth-child(3){
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ── Content ── */
 .content-container{
   display: flex;
   flex-direction: column;
   width: 100%;
   margin: 40px 5px;
-  row-gap: 30px;
+  row-gap: 50px;
 }
 .section-container{
   position: relative;
   width: 100%;
+  height: fit-content;
   scroll-margin-top: 90px;
   border-top: rgba(0, 0, 0, 0.26) 2px dashed;
   background-color: #f7fffa;
   box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  font-size: 14px;
 }
 .section-title{
   position: absolute;
+  font-size: 20px;
   top: -20px;
   left: 40px;
   font-family: "Bebas Neue", sans-serif;
@@ -117,28 +167,27 @@ abbr{
 .profile-container{
   display: flex;
   width: 100%;
-  height: 500px;
+  height: 100%;
 }
 .profile-left{
   flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: start;
   justify-content: center;
+  padding-left: 7vw;
 }
-
 .profile-name-direct-container{
   display: flex;
   flex-direction: column;
 }
 .profile-name{
-  font-size: 8vw;
+  font-size: clamp(2vw, 8vw, 8vw);
 }
-
 .icon-container{
- display: flex;
- gap: 5px;
- align-items: center;
+  display: flex;
+  gap: 5px;
+  align-items: center;
 }
 .icon{
   width: 15px;
@@ -147,13 +196,13 @@ abbr{
 .profile-contact-container{
   display: flex;
   justify-content: start;
-  
+  width: 100%;
 }
 .profile-contact-list{
   display: flex;
   flex-direction: column;
+  font-size: 14px;
 }
-
 .profile-right{
   display: flex;
   flex: 1;
@@ -162,24 +211,23 @@ abbr{
   justify-content: center;
 }
 .profile-image-container{
-  height: 50vh;
-  width: 30vw;
+  height: 30vw;
+  aspect-ratio: 1/1;
   border-radius: 10px;
   overflow: hidden;
-  transition: transform 200ms ease-in-out;
+  transition: transform 300ms ease-in-out;
   border: rgba(0, 0, 0, 0.196) 1px dashed;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.146);
 }
 .profile-image-container:hover{
   transform: scale(1.01);
-  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.146);
-  
+  box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.12);
 }
 .profile-image{
   width: 100%;
   height: 100%;
   object-position: top;
   object-fit: cover;
-
 }
 
 .para-container{
@@ -189,16 +237,17 @@ abbr{
   display: flex;
   justify-content: end;
 }
+
+/* ── Works grid ── */
 .works-list{
   display: grid;
   justify-content: center;
   grid-template-columns: repeat(auto-fit, minmax(150px, 300px));
-  gap:20px;
+  gap: 20px;
   row-gap: 50px;
-  margin:35px 20px;
+  margin: 35px 20px;
   isolation: isolate;
 }
-
 .work{
   display: flex;
   flex-direction: column;
@@ -213,7 +262,7 @@ abbr{
   height: 25vh;
   min-width: 150px;
   position: relative;
-  z-index: 1;  
+  z-index: 1;
 }
 .work:hover{
   transform: scale(1.05);
@@ -224,7 +273,6 @@ abbr{
   transform: translateX(0);
   display: inline;
 }
-
 .work-container{
   position: relative;
   display: flex;
@@ -234,7 +282,6 @@ abbr{
   height: 25vh;
   overflow: hidden;
 }
-
 .work-title{
   position: absolute;
   text-align: center;
@@ -248,7 +295,6 @@ abbr{
   border-bottom: rgba(0, 0, 0, 0.146) 2px dashed;
   overflow: hidden;
   position: relative;
-  overflow: hidden;
 }
 .work-image-bg{
   width: 100%;
@@ -267,6 +313,7 @@ abbr{
   background-color: #f5f5f7;
 }
 
+/* ── Footer ── */
 .page-footer {
   margin-top: 30px;
   padding-bottom: 200px;
@@ -334,6 +381,8 @@ abbr{
   color: rgb(100, 100, 100);
   text-decoration: underline;
 }
+
+
 .oswald {
   font-family: "Oswald", sans-serif;
   font-optical-sizing: auto;
@@ -344,4 +393,55 @@ abbr{
   font-family: "Bebas Neue", sans-serif;
   font-weight: 400;
   font-style: normal;
+}
+
+
+@media screen and (max-width: 700px) {
+
+  .profile-image-container{
+    height: 40vw;
+  }
+
+
+  .nav-bar-list {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(20px);
+    flex-direction: column;
+    align-items: stretch;
+    padding: 10px;
+    gap: 8px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.12);
+
+    width: fit-content;
+    height: auto;
+    /* max-width: none; */
+    margin-right: 0;
+    padding-right: 16px;
+  }
+
+
+  .nav-bar-list.show {
+    display: flex;
+  }
+
+  .nav-bar-list li {
+    width: 100%;
+  }
+
+  .nav-anchor {
+    display: block;
+    text-align: center;
+    padding: 8px 12px;
+  }
+}
+
+/* ── Desktop: always show nav, hide burger ── */
+@media screen and (min-width: 701px) {
+  .burger {
+    display: none;
+  }
 }
