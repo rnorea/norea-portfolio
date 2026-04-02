@@ -1,0 +1,128 @@
+:root{
+  
+  --prime-blue: #0a1a31;
+  --sec-blue: #3c6d94;
+  --third-blue: #deeef4;
+  --fourth-blue: hsl(197, 100%, 96%);
+  --light-silver: #f8f5f2;
+  --prime-text: "Anton" , sans-serif;
+  --second-text: "Inter", sans-serif;
+}
+html{
+  background-color: var(--prime-blue);
+  display: flex;
+  justify-content: center;
+}
+
+body{
+  background-color: var(--third-blue);
+  font-family: var(--prime-text);
+  width: 3000px;
+  display: flex;
+  justify-content: center;
+  border-radius: 5px;
+}
+a{
+  text-decoration: none;
+  color: inherit
+}
+
+#main-header{
+  position: fixed;
+  top: 20px;
+}
+/* ================================================================== */
+
+#main-nav{
+
+  display: flex;
+  width: fit-content;
+  border-radius: 40px;
+  background-color: var(--fourth-blue);
+  box-shadow: 0 0 5px 5px rgba(0,0,0, 0.08);
+  color: var(--prime-blue);
+}
+.nav-lists{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 10px;
+
+ 
+}
+.nav-list{
+  padding: 8px;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: color 0.2s ease-in-out;
+
+  &:first-child{
+    padding-left: 28px;
+  }
+  &:last-child{
+    /* padding-right: 28px; */
+  }
+}
+
+.nav-list:hover{
+  color: var(--sec-blue);
+}
+#contact{
+  display: flex;
+  align-items: center;
+  background-color: var(--prime-blue);
+  color: var(--third-blue);
+  border-radius: 20px;
+  margin: 3px;
+}
+#contact:hover{
+
+}
+/* ======================================================== */
+main{
+  margin-top: 80px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.section{
+  display: flex;
+  color: var(--sec-blue);
+  justify-content: center;
+  width: 100%;
+  padding: 20px;
+  gap: 10vh;
+}
+
+/* --------- */
+.home-main{
+  /* flex: 1; */
+  justify-content: center;
+  align-items: center;
+}
+#left-home{
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  
+}
+#main-name{
+  font-size: 50px;
+  color: var(--prime-blue);
+}
+/* --------- */
+#right-home{
+  
+}
+#profile-img-container img{
+  width: 200px;
+  height: 300px;
+  object-fit: cover;
+  display: flex;
+}
