@@ -1,12 +1,317 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="refresh" content="0; url=./v3">
-  <title>Document</title>
-</head>
-<body>
-  
-</body>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="portfolio.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <link rel="icon" href="./assets/favicon.ico" type="image/x-icon" scr>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="./portfolio.js"></script>
+  </head>
+  <body>
+    <header class="page-header" >
+      <div class="title-container">
+        <a href="#profile-section" class="title">
+          <span id="mini-name">ROTH Noreasakpheak</span>
+          <span id="mini-role">Designer & Developer</span>
+        </a>
+      </div>
+      <nav  class="nav-bar">      
+        <ul id="nav-bar" class="nav-bar-list" >
+          <li><a href="#profile-section" class="nav-anchor">Profile</a></li>
+          <li><a href="#about-section" class="nav-anchor">About</a></li>
+          <li><a href="#works-section" class="nav-anchor">Works & Skills</a></li>
+        </ul>
+      </nav>
+      <button id="menu" class="burger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+    </header>
+
+    <main class="content-container">
+
+      <section id="top"></section>
+
+      <section id="profile-section" class="section-container">
+        <div class="profile-container">
+          <div class="profile-left">
+            <div class="profile-name-direct-container bebas-neue-regular">
+              <span class="profile-name">ROTH</span>
+              <span class="profile-name">Noreasakpheak</span>
+            </div>
+            <div class="profile-contact-container">
+              <ul class="profile-contact-list">
+                <!-- <li class="contact"><a href="">
+                  <div class="icon-container">
+                    <img class="icon" src="./assets/icons/phone.svg" alt="phone-logo" />
+                    <span>092-985-362</span>
+                  </div>
+                </a></li> -->
+                <li class="contact"><a href="mailto:work@rothnoreasakpheak.com">
+                  <div class="icon-container" >
+                    <img class="icon" src="./assets/icons/email_black.svg" alt="phone-logo" />
+                    <span >rothnoreasakpheak@gmail.com</span>
+                  </div>
+                </a></li>
+                <li class="contact"><a href="https://github.com/rnorea" target="_blank">
+                  <div class="icon-container" >
+                    <img class="icon" src="./assets/icons/github-logo.svg" alt="phone-logo" />
+                    <span>rnorea</span>
+                  </div>
+                </a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="profile-right">
+            <div class="profile-image-container">
+              <img class="profile-image" src="./assets/images/kpot_rafile.jpg" alt="sakpheak_profile_photo">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about-section" class="section-container">
+        <div class="about-container">
+          <div class="about-title-container">
+            <span class="about-title section-title">About Me</span>
+          </div>
+          <div class="section-body about-body">
+            <div id="para1" class="about-para-container">
+              <div  class="para-container">
+                <p class="para">   
+                  I am Software Development student from   
+                  <span> 
+                    <a href="https://www.aupp.edu.kh" target="_blank">
+                      <abbr title="American University of Phnom Penh">
+                      AUPP
+                      </abbr>
+                    </a>
+                  </span>
+                  , a frontend developer and designer who loves 
+                  turning complex ideas into clean, intuitive digital 
+                  experiences. With a strong foundation in HTML, CSS, 
+                  and JavaScript, I craft responsive, accessible 
+                  interfaces that feel as good as they look. 
+                  My design approach blends user-centered thinking 
+                  with a sharp eye for visual detail, ensuring every 
+                  product is both functional and engaging.
+                </p>
+              </div>
+            </div>
+            <div id="para2" class="about-para-container">
+              <div  class="para-container">
+                <p class="about-para">
+                  I thrive at the intersection of creativity and 
+                  code, where thoughtful design systems meet scalable 
+                  frontend architecture. From wireframes and prototypes 
+                  to polished production builds, I enjoy owning the
+                  full journey of bringing ideas to life. My goal is 
+                  simple: build experiences that are fast, accessible, 
+                  and genuinely enjoyable to use.
+                </p>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </section>
+      <section id="works-section" class="section-container">
+        <div class="works-list-container section-body">
+          <div class="about-title-container">
+            <span class="about-title section-title">Works & Skills</span>
+          </div>
+          <ul class="works-list">
+            <li class="work">
+              <a href="https://github.ement-System" class="work-anchor" target="_blank">
+                <div class="work-container">
+                  <div class="work-image-container">
+                    <img class="work-image-bg" src="https://i.pinimg.com/736x/09/b2/31/09b231576d980076f6480c438af228e7.jpg" alt="">
+                  </div>
+                  <span class="work-title">Stockarrier</span>
+                </div>
+              </a>
+              <div class="work-description">
+                <p>
+                  A stock management system designed to help 
+                  businesses track inventory levels, manage 
+                  suppliers, monitor stock movements, and 
+                  generate reports for better operational 
+                  control and decision-making.
+                </p>
+              </div>
+            </li>
+            <li class="work">
+              <a target="_blank" href="https://github.com/git" class="work-anchor">
+                <div class="work-container">
+                  <div class="work-image-container">
+                    <img class="work-image-bg" src="https://i.pinimg.com/1200x/85/9c/7c/859c7cf8043d590b0d0f1ae4f6642a82.jpg" alt="">
+                  </div>
+                  <span class="work-title">Git</span>
+                </div>
+              </a>
+              <div class="work-description">
+                <p>
+                  A distributed version control system that 
+                  allows developers to track changes in 
+                  source code, collaborate efficiently, 
+                  manage branches, and maintain a complete 
+                  history of project revisions.
+                </p>
+              </div>
+            </li>
+            <li class="work">
+              <a target="_blank" href="https://github.com/torvalds/linux" class="work-anchor">
+                <div class="work-container">
+                  <div class="work-image-container">
+                    <img class="work-image-bg" src="https://i.pinimg.com/736x/8b/8c/fc/8b8cfc5c57dfd820ed3d4e0728fb9295.jpg" alt="">
+                  </div>
+                  <span class="work-title">Linux</span>
+                </div>
+              </a>
+              <div class="work-description">
+                <p>
+                  An open-source operating system kernel that 
+                  powers a wide range of devices, from servers 
+                  and desktops to smartphones and embedded 
+                  systems, known for its stability, security, 
+                  and flexibility.
+                </p>
+              </div>
+            </li>
+            <li class="work">
+              <a target="_blank" href="https://github.com/mysql" class="work-anchor">
+                <div class="work-container">
+                  <div class="work-image-container">
+                    <img class="work-image-bg" src="https://i.pinimg.com/736x/ba/b2/c7/bab2c760c60f17191cb3a002e08a3dbf.jpg" alt="">
+                  </div>
+                  <span class="work-title">MySQL</span>
+                </div>
+              </a>
+              <div class="work-description">
+                <p>
+                  An open-source relational database 
+                  management system that stores and 
+                  organizes structured data using SQL, 
+                  widely used in web applications and 
+                  enterprise systems.
+                </p>
+              </div>
+            </li>
+            <li class="work">
+              <a target="_blank" href="https://github.com/facebook/react" class="work-anchor">
+                <div class="work-container">
+                  <div class="work-image-container">
+                    <img class="work-image-bg" src="https://i.pinimg.com/736x/0f/65/58/0f6558f88fb457e68f92c042df252892.jpg" alt="">
+                  </div>
+                  <span class="work-title">React</span>
+                </div>
+              </a>
+              <div class="work-description">
+                <p>
+                  A JavaScript library for building user interfaces, 
+                  developed by Meta. It enables developers to create 
+                  reusable UI components and manage application state 
+                  efficiently through a virtual DOM.
+                </p>
+              </div>
+            </li>
+            <li class="work">
+              <a target="_blank" href="https://github.com/nodejs/node" class="work-anchor">
+                <div class="work-container">
+                  <div class="work-image-container">
+                    <img class="work-image-bg" src="https://i.pinimg.com/1200x/a4/22/c1/a422c15025eb156516c67e0bbdd2f382.jpg" alt="">
+                  </div>
+                  <span class="work-title">Node.js</span>
+                </div>
+              </a>
+              <div class="work-description">
+                <p>
+                  A cross-platform JavaScript runtime environment built 
+                  on Chrome's V8 engine that allows developers to run 
+                  JavaScript on the server side, enabling fast and 
+                  scalable network applications.
+                </p>
+              </div>
+            </li>
+            <li class="work">
+              <a target="_blank" href="https://github.com/VSCodium/vscodium" class="work-anchor">
+                <div class="work-container">
+                  <div class="work-image-container">
+                    <img class="work-image-bg" src="https://i.pinimg.com/736x/01/e6/21/01e621158668a4b8b7c92f1d1671bd43.jpg">
+                  </div>
+                  <span class="work-title">VS Code</span>
+                </div>
+              </a>
+              <div class="work-description">
+                <p>
+                  A lightweight but powerful open-source code editor 
+                  by Microsoft, featuring built-in Git support, 
+                  intelligent code completion, debugging tools, 
+                  and a rich extension marketplace.
+                </p>
+              </div>
+            </li>
+            <li class="work">
+              <a target="_blank" href="https://github.com/python/cpython" class="work-anchor">
+                <div class="work-container">
+                  <div class="work-image-container">
+                    <img class="work-image-bg" src="https://i.pinimg.com/736x/6c/df/12/6cdf1232b1f705573716e1c3733a7bbc.jpg" alt="">
+                  </div>
+                  <span class="work-title">Python</span>
+                </div>
+              </a>
+              <div class="work-description">
+                <p>
+                  A high-level, general-purpose programming language 
+                  known for its simplicity and readability. Widely 
+                  used in web development, data science, artificial 
+                  intelligence, and automation scripting.
+                </p>
+              </div>
+            </li>
+
+          </ul>
+        </div>
+      </section>
+    </main>
+    <footer class="page-footer section-container">
+      <div class="footer-container">
+        <div class="footer-top">
+          <div class="footer-brand">
+            <span class="footer-name bebas-neue-regular">Rak</span>
+            <span class="footer-role">Designer & Developer</span>
+          </div>
+          <div class="footer-links">
+            <a href="mailto:work@rothnoreasakpheak.com">wakpheak.com</a>
+            <a href="https://githu" target="_blank">GitHub</a>
+          </div>
+        </div>
+        <div class="footer-divider"></div>
+        <div class="footer-bottom">
+          <span>© 2026 . All rights reserved.</span>
+          <span class="footer-edu">⚠ Built for educational purposes only.</span>
+        </div>
+        <div class="footer-disclaimer">
+          <p>
+            Most materials, images, and content used in this portfolio are 
+            not owned by me. Images sourced from 
+            <a href="https://pinterest.com" target="_blank">Pinterest</a>. 
+            Design inspiration from 
+            <a href="https://www.awwwards.com" target="_blank">Awwwards</a>, 
+            particularly 
+            <a href="https://rylangphillips.com" target="_blank">Rylan Phillips – Designer & Developer, Vienna AT</a> 
+            and other featured works. No copyright infringement intended.
+          </p>
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>
