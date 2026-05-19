@@ -1,3 +1,5 @@
+// util functions
+
 function getDateTime(dateStyle='short', timeStyle='short'){
   const now = new Date()
   const fullDateTime = now.toLocaleString('en-GB', {
@@ -25,7 +27,6 @@ function getTempletDateTime(){
 function getCustomDateTime(){ 
   const now = new Date()
 
-  
   const year = now.getFullYear();
   const month = String(now.getMonth() + 1).padStart(2, '0');
   const day = String(now.getDate()).padStart(2, '0');
@@ -38,54 +39,65 @@ function getCustomDateTime(){
 }
 
 
+
+// form elements
 const form = document.getElementById('message-form');
+const submitBtn = document.getElementById('cf-submit')
+const submitText = document.getElementById('cf-submit-text')
+const submitArrow = document.getElementById('cf-submit-arrow')
+const submitRes = document.getElementById('submit-response')
+const another = document.getElementById('submit-another')
+
+
+// submit fuction of form
 form.addEventListener('submit', async (event)=>{
   event.preventDefault()
-  const formData = new FormData(form)
+  
+  form.classList.add('disabled')
+  submitBtn.classList.add('disabled')
+  submitText.innerHTML = 'Sending...'
+  submitArrow.classList.add('reveal')
+  submitRes.classList.remove('reveal', 'fail')
 
+  const formData = new FormData(form)
   formData.append('datetime', getCustomDateTime())
   
-//   console.log(getDateTime())
-//   console.log(getTempletDateTime())
-//   console.log(getCustomDateTime())
-// 
-//   const name = formData.get('name')
-//   const org = formData.get('org')
-//   const sub = formData.get('subject')
-//   const msg = formData.get('message')
-//   const dash = '-'.repeat(30)
-//   console.log(name, org, sub, msg)
-// 
-//   const full_message = 
-//     `${getCustomDateTime()}\n${dash}\nName: ${name}\nOrganization: ${org}\n${dash}\nSubject: ${sub}\nMessage: \n\n\t--- ${msg}`
-// 
-//   const TOKEN = "8982831859:AAFTSvqF_OYhQlfSo8_TyHz2U-UvUf98JU4";
-//   const CHAT_ID = "-5039723444";
-// 
-//   const toTelegram = await fetch(`https://api.telegram.org/bot${TOKEN}/sendMessage`, {
-//     method: "POST",
-//     headers: { "Content-Type": "application/json" },
-//     body: JSON.stringify({
-//       chat_id: CHAT_ID,
-//       text: full_message,
-//     }),
-//   });
-// 
-//   const r = await toTelegram.json()
-//   if(!r.ok)
-//     console.log('not ok')
-//     return new Response(JSON.stringify({'ok':false}), {
-//       status: 400,
-//     })
-
-
   const sentData = await fetch('https://portfolio-message.sakpheak.workers.dev/', {
     method: 'POST',
     body: formData,
   })
 
-  const r = await sentData.json()
-  console.log(r)
-  // console.log('status ', sentData.status)
-  // console.log('time F', time,'date', time.getDate(),'day', time.getDay(),'TIME',time.getTime())
+  const res = await sentData.json()
+  // ok = true
+  if(res.ok){
+    console.log('message sent')
+    
+    setTimeout(() => {
+      submitText.innerHTML = 'Message Sent'
+      submitBtn.classList.add('pale')
+    }, 400);
+
+    submitRes.classList.add('reveal')
+  }else{
+    setTimeout(() => {
+      submitText.innerHTML = 'Sending Fail'
+      submitBtn.classList.add('pale')
+
+      another.innerHTML = 'Try again'
+      submitRes.classList.add('reveal', 'fail')
+
+    }, 400);
+  }
+})
+
+
+// response feedback
+another.addEventListener('click', ()=>{
+  form.reset()
+  form.classList.remove('disabled')
+  submitBtn.classList.remove('disabled')
+  submitText.innerHTML = 'Send Message'
+  submitRes.classList.remove('reveal')
+  submitArrow.classList.remove('reveal')
+  another.innerHTML = 'Send another message'
 })

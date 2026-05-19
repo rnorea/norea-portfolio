@@ -1,44 +1,5 @@
-const cardContainer = document.getElementById('card-container');
 
-cardContainer.addEventListener('click', () => cardContainer.classList.toggle('active'));
-setInterval(() => cardContainer.classList.toggle('active'), 30000);
-
-
-/* ============================================================
-   CONTACT ICON HOVER EXPAND
-   ============================================================ */
-const contactLinks = document.querySelectorAll('.contact-link');
-let hoverTimer;
-
-contactLinks.forEach(link => {
-  link.addEventListener('mouseenter', () => {
-    contactLinks.forEach(l => l.classList.remove('enter'));
-    clearTimeout(hoverTimer);
-    link.classList.add('enter');
-  });
-
-  link.addEventListener('mouseleave', () => {
-    hoverTimer = setTimeout(() => link.classList.remove('enter'), 10000);
-  });
-});
-
-
-/* ============================================================
-   ABOUT TABS
-   ============================================================ */
-document.querySelectorAll('.about-tab').forEach(tab => {
-  tab.addEventListener('click', () => {
-    document.querySelectorAll('.about-tab').forEach(t => t.classList.remove('active'));
-    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-    tab.classList.add('active');
-    document.getElementById('tab-' + tab.dataset.tab).classList.add('active');
-  });
-});
-
-
-/* ============================================================
-   NAV DARK MODE (intersection with dark sections)
-   ============================================================ */
+// dynamic changing navbar to dark on dark section
 const nav = document.getElementById('navbar');
 const visibleDarkSections = new Set();
 
@@ -52,52 +13,126 @@ const navObserver = new IntersectionObserver(entries => {
   threshold: 0,
   rootMargin: '-60px 0px -90% 0px'
 });
-
 document.querySelectorAll('.stack').forEach(s => navObserver.observe(s));
 
 
-/* ============================================================
-   CONTACT SECTION SCROLL REVEAL
-   ============================================================ */
-const contactSection = document.querySelector('.contact-section');
 
-if (contactSection) {
-  const revealObserver = new IntersectionObserver(([entry]) => {
-    if (entry.isIntersecting) {
-      contactSection.classList.add('visible');
-      revealObserver.disconnect();
+
+// nav on scroll hide, for mobile only max-width: 540px
+const isMobile = window.matchMedia('(max-width: 540px)');
+if (isMobile.matches){  
+
+  let lastScroll = 0;
+  window.addEventListener('scroll', () => {
+    const currentScroll = window.scrollY;
+
+    if (currentScroll > lastScroll && currentScroll > 50) {
+      nav.classList.add('nav-hidden'); 
+    } else {
+      nav.classList.remove('nav-hidden');
     }
-  }, { threshold: 0.1 });
+    
+    lastScroll = currentScroll;
+  });
 
-  revealObserver.observe(contactSection);
 }
 
 
-/* ============================================================
-   CONTACT FORM SUBMIT
-   ============================================================ */
-// function handleContactSubmit(e) {
-//   e.preventDefault();
-//   const toast = document.getElementById('cf-toast');
-//   toast.classList.add('show');
-//   e.target.reset();
-//   setTimeout(() => toast.classList.remove('show'), 3500);
-// }
 
+// ============================= oberver
+function observeElement(arr, threshold=0.5, func=null, cl=['show']){
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible', ...cl);
+        revealObserver.unobserve(entry.target);
+        if(typeof func === 'function') func()
+          
+      }
+    })
+  }, { threshold: threshold });
 
-/* ============================================================
-   SHOWCASE CATEGORY FILTER
-   ============================================================ */
-// toggle button
-const category_controls = document.querySelectorAll('.control-btm')
-  category_controls.forEach(btn => {
-  btn.addEventListener('click', ()=>{
-    category_controls.classList.remove('active')
-    btn.classList.add('active')
-  })
-})
-//handle category to display
-function showCategory(categoryId) {
-  document.querySelectorAll('.category-panel').forEach(p => p.classList.remove('active'));
-  document.getElementById(categoryId).classList.add('active');
+  arr.forEach(e => {
+    if (e) revealObserver.observe(e); 
+  });
 }
+
+
+// on scroll reveal
+const animate = [
+  document.querySelector('.about-title-wrap'),
+  document.querySelector('.about-profile'),
+  document.querySelector('.about-left'),
+  document.querySelector('.about-right'),
+  document.querySelector('.about-stats'),
+  
+  document.querySelector('.showcase-header'),
+  document.querySelector('.showcase-controls'),
+
+  document.querySelector('.contact-heading'),
+  document.querySelector('.contact-eyebrow'),
+  document.querySelector('.contact-sub'),
+  document.querySelector('.contact-info-list'),
+  document.querySelector('.contact-form'),
+  document.querySelector('.contact-form-heading'),
+
+  document.querySelector('.credit-section')
+];
+
+observeElement(animate)
+observeElement(
+  [document.querySelector('.showcase-container')],
+  0.25,
+  ()=> setTimeout(() => {
+    document.querySelector('.showcase-container').classList.remove('visible')
+  }, 1500),
+  ['show']
+)
+
+
+
+
+// ========================== show case filter
+// 1st, this approach is a bit laggy, because each panel uses display: none->block??
+// const category_controls = document.querySelectorAll('.control-btn')
+// const category_items = document.querySelectorAll('.category-panel')
+//   category_controls.forEach(btn => {
+//   btn.addEventListener('click', (e)=>{
+//     const cate = e.target.dataset.role
+// 
+//     category_items.forEach(p => p.classList.remove('active'));
+//     document.getElementById(cate).classList.add('active');
+// 
+//     category_controls.forEach(c => c.classList.remove('active'))
+//     btn.classList.add('active')
+//   })
+// })
+
+// 2nd, faster
+const category_controls = document.querySelectorAll('.control-btn');
+const category_items = document.querySelectorAll('.category-panel');
+const showcase = document.getElementById('showcase-section')
+
+const panelMap = {};
+category_items.forEach(p => panelMap[p.id] = p);
+
+let activeBtn = document.querySelector('.control-btn.active');
+let activePanel = document.querySelector('.category-panel.active');
+
+category_controls.forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    showcase.scrollIntoView({ behavior: 'smooth' });
+
+    const cate = btn.dataset.role;
+    const targetPanel = panelMap[cate];
+
+    if (activeBtn) activeBtn.classList.remove('active');
+    if (activePanel) activePanel.classList.remove('active');
+
+    btn.classList.add('active');
+    if (targetPanel) targetPanel.classList.add('active');
+
+    activeBtn = btn;
+    activePanel = targetPanel;
+  });
+});
